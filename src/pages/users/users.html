@@ -1,0 +1,72 @@
+<!--
+  Generated template for the UsersPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header no-border class="header_off">
+    <ion-navbar>
+        <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+        <ion-title>Users</ion-title>
+        <ion-buttons end>
+            <!-- <button [ngClass]="{'animated pulse infinite': voyant == true}" ion-button icon-only (click)="refresh()">
+        <ion-icon id="refresh" name="refresh" [ngClass]="{'refresh': refreshing==true}"></ion-icon>
+      </button> -->
+      <button ion-button icon-only (click)="searchItems()">
+          <ion-icon id="search" name="search"></ion-icon>
+        </button>
+                  <button style="width: 2rem; height: 2rem; font-size: 1.5rem !important" ion-button icon-only>
+                      <span>
+                          {{allUsers['length']}}
+                        </span>
+                    </button>
+        </ion-buttons>
+    </ion-navbar>
+    <ion-toolbar *ngIf="display_search == true">
+        <ion-searchbar class="animated fadeInRight" debounce="500" [showCancelButton]=true (ionCancel)="onCancel($event)" (ionClear)="onClear($event)" id="offerSearch" (ionInput)="launchSearch($event)" [(ngModel)]="search_term" placeholder="Enter Search Name"></ion-searchbar>
+    </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding>
+    <span text-center style="color: white; font-size: 1.6rem; margin-top: 40px !important" id="empty" *ngIf="showFailed === true">
+    <p>
+      <img style="width: 100px !important; position: relative !important" src="assets/sad.svg">
+    </p>
+    <p>{{'data_not_ready' | translate}}</p>
+    <button id="iconOnly" color="light" (click)="refresh()" ion-button icon-only clear>
+      <ion-icon [ngClass]="{'refresh': refreshing==true}" name="refresh"></ion-icon>
+    </button>
+  </span>
+    <ion-grid [ngClass]="{'goDown': display_search==true}">
+        <ion-row>
+            <ion-col (click)="opneProfile(user)" *ngFor="let user of users" class="animated fadeInUp" col-12 col-sm-6 col-md-6 col-lg-3 col-xl-4 no-padding>
+                <ion-card class="sub-list">
+                    <ion-item no-padding no-lines>
+                        <h2 text-uppercase style="margin-top: 35px; font-size: 1.4rem !important">
+                            <span style="display: inline-block; max-width: 100% !important">{{user.name}}</span>
+                            <div *ngIf="user?.url == 'http://Admin' || user.id == 1" class="like-icons">
+                                <img src="assets/policeman.svg" style="right: 5px !important;">
+                                <!-- <ion-icon style="right: 5px !important;" name="md-heart-outline" color="primary" *ngIf="!offer?.like"></ion-icon> -->
+                            </div>
+
+                        </h2>
+
+                        <p class="info">{{user.id}}</p>
+                        <p class="info">{{user.link}}</p>
+                        <!-- <ion-thumbnail lazy-load-images item-start>
+                            <img id="coverImg" [defaultImage]="defaultImage" [lazyLoad]="user.avatar_urls[24]" img-cache img-cache-src={{user.avatar_urls[24]}} [offset]="offset">
+
+                        </ion-thumbnail> -->
+                    </ion-item>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+    <ion-infinite-scroll (ionInfinite)="loadmore($event)">
+        <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+
+</ion-content>

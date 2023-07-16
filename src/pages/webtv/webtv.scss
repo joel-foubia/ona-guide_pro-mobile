@@ -1,0 +1,155 @@
+page-webtv {
+    .header-image {
+        height: 30vh;
+        background-repeat: no-repeat !important;
+        background-size: cover !important;
+        -webkit-background-size: cover !important;
+        background-position: center !important;
+        background-size: cover !important;
+    }
+    .header-image {
+        background-image: url('../assets/images/africatv_banniere.jpeg');
+        background-color: rgba(0, 0, 0, 0.5) !important;
+        filter: brightness(50%);
+    }
+    .main-content {
+        height: 80vh;
+        width: 100% !important;
+        #arrow_icon {
+            width: 30px !important;
+            height: 30px !important;
+        }
+    }
+    #user_info {
+        position: absolute;
+        z-index: 1;
+        top: 15vh;
+        left: 0;
+        right: 0;
+        -webkit-text-stroke-width: 0.3px;
+        -webkit-text-stroke-color: black;
+        -webkit-text-fill-color: color($colors, light) !important;
+    }
+    .picGoDown {
+        top: 27vh !important;
+    }
+    .picGoUp {
+        top: 8vh !important;
+    }
+    img {
+        width: 200px;
+        height: 200px;
+        margin: 5px;
+    }
+    ion-item-divider {
+        color: white!important;
+        background-color: color($colors, primary)!important;
+        text-align: left;
+    }
+    ion-row {
+        ion-item-divider {
+            color: white!important;
+            background-color: color($colors, primary)!important;
+            text-align: left;
+        }
+    }
+    #horizontal_scroll {
+        white-space: nowrap !important;
+        height: 270px !important;
+    }
+    #plays {
+        display: inline-block !important;
+        margin: 5px !important;
+        ion-icon {
+            position: absolute !important;
+            top: 140px;
+            font-size: 4.5rem !important;
+            color: white !important;
+            -webkit-text-stroke-width: 1px;
+            -webkit-text-stroke-color: black;
+            -webkit-text-fill-color: white !important;
+        }
+    }
+    h5 {
+        color: grey
+    }
+    ion-header {
+        .toolbar {
+            position: absolute !important;
+            .toolbar-background {
+                background: transparent !important;
+            }
+            .toolbar-title {
+                color: color($colors, light) !important;
+            }
+        }
+        ion-icon {
+            color: color($colors, light) !important;
+        }
+    }
+    ion-segment-button {
+        color: color($colors, light) !important;
+        border: none !important;
+    }
+    .segment-button.segment-activated {
+        opacity: 1 !important;
+        border-bottom: 2px solid color($colors, primary) !important;
+        color: color($colors, primary) !important;
+    }
+    #segment_data {
+        margin-top: 60px !important;
+    }
+    #scroller {
+        position: unset !important;
+        div.scroll-content {
+            top: 80px !important;
+        }
+    }
+    #segment_container {
+        position: absolute !important;
+        top: 28vh !important;
+        width: 100% !important;
+        z-index: 1 !important;
+        background-color: color($colors, dark);
+    }
+    ion-segment {
+        display: block;
+        white-space: nowrap;
+        // font-size: 0;
+        overflow: auto;
+        &::-webkit-scrollbar {
+            width: 0;
+            height: 0;
+            display: none;
+        }
+        ion-segment-button.segment-button {
+            display: inline-block;
+            min-width: 190px;
+            width: auto;
+        }
+    }
+    .videoWrapper {
+        position: relative;
+        padding-bottom: 56.25%;
+        /* 16:9 */
+        padding-top: 25px;
+        height: 0;
+        // margin-top: 10px !important;
+    }
+    .videoWrapper iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    ion-spinner * {
+        width: 28px;
+        height: 28px;
+        stroke: #444;
+        fill: #222;
+    }
+    .hide {
+        display: none !important
+    }
+}

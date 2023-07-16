@@ -1,0 +1,78 @@
+<ion-header class="header_off">
+    <ion-navbar>
+        <ion-title text-left>
+            <span *ngIf="type.type.name=='location'">{{'menu.location' | translate}}</span>  
+            <span *ngIf="type.type.name!='location'">{{'menu.tag' | translate}}</span>  
+        </ion-title>
+        <!-- <ion-searchbar *ngIf="showSearch" (ionInput)="setFilteredItems($event)" placeholder="{{ 'message.search' | translate}}" animated="true" showCancelButton="true" (ionCancel)="searchCanceled()"></ion-searchbar> -->
+        <ion-buttons end>
+                <button [ngClass]="{'searchOn': display_search_btn}" ion-button icon-only (click)="searchItems()">
+                        <ion-icon name="ios-search-outline"></ion-icon>
+                    </button>
+            <!-- <button ion-button icon-only (click)="displaySearchBar()">
+                <ion-icon name="search"></ion-icon>
+            </button> -->
+            <button ion-button icon-only (click)="openLeftMenu()">
+                <ion-icon name="md-more"></ion-icon>
+            </button>
+        </ion-buttons>
+
+    </ion-navbar>
+
+    <ion-toolbar *ngIf="display_search_btn" custom-segment class="animated fadeIn custom-toolbar">
+        <!-- <div class="filters-selected">
+            <span (click)="removeFilter(item)" [ngStyle]="{'background-color':item.bgColor}" *ngFor="let item of txtFiltre">
+                {{item.name}} <ion-icon name="close"></ion-icon> </span>
+        </div> -->
+        <ion-item class="search-bloc" transparent no-lines no-padding>
+            <ion-searchbar item-start class="animated zoomIn" debounce="500" [showCancelButton]="false" (ionInput)="setFilteredItems($event)" placeholder="{{ 'message.search2' | translate}}" [(ngModel)]="search_term">
+            </ion-searchbar>
+            <!-- <ion-icon (click)="onSetClick()" color="{{colorFilterBtn}}" name="options" item-end></ion-icon> -->
+        </ion-item>
+    
+    </ion-toolbar>
+
+</ion-header>
+<ion-content text-center parallax-header>
+    
+    <ona-slider *ngIf="img.length > 0" [imgs]="img" [events]="events"></ona-slider>
+    
+    <ion-grid no-padding class="bloc-category ">
+            <p *ngIf="objLoader" text-center>
+                    <ion-spinner name="dots"></ion-spinner>
+                </p>
+        <ion-row *ngIf="taxonomy.length!=0 && !objLoader">
+            <ion-col col-12 col-sm-6 col-md-6 col-lg-4 col-xl-4 *ngFor="let item of taxonomy | slice:0:max " no-padding>
+                <ion-card class="animated fadeIn custom-card" (click)="goToAnounceParent(item)">
+                    <ion-item transparent>
+                        <ion-icon *ngIf="type.type.name == 'location'" name="md-globe" item-start class="top_icon"></ion-icon>
+                        <ion-icon *ngIf="type.type.name != 'location'" name="md-bookmark" item-start class="top_icon"></ion-icon>
+                        <h3 [innerHtml]="item.name"></h3>
+                        <p>{{'message.lbl_annonce' | translate:item}}</p>
+                    </ion-item>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+        <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+            <ion-infinite-scroll-content loadingSpinner="bubbles"></ion-infinite-scroll-content>
+        </ion-infinite-scroll>
+    </ion-grid>
+    <ion-grid>
+        <ion-row *ngIf="taxonomy.length==0 && !objLoader">
+            <ion-col>
+                <div bloc-empty>
+                    <div>
+                        <img src="assets/imgs/{{type.type.name}}.svg" alt="">
+                    </div>
+                    <h3 *ngIf="txtSearch!='' && type.type.name=='location'">{{'message.empty_location' | translate}} : <strong>{{txtSearch}}</strong></h3>
+                    <h3 *ngIf="txtSearch!='' && type.type.name=='tag'">{{'message.empty_tag' | translate}} : <strong>{{txtSearch}}</strong></h3>
+                    <h3 *ngIf="txtSearch==''">{{'taxo.empty' | translate}}</h3>
+                </div>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+    <!-- <div padding class="header-image">
+
+    </div> -->
+
+</ion-content>

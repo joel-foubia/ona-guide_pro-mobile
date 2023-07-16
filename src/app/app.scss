@@ -1,0 +1,521 @@
+// http://ionicframework.com/docs/theming/
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+// Include Bourbon
+// @import "_bourbon";
+@import "../theme/common";
+// $app-direction: multi;
+@font-face {
+	font-family: 'Roboto-Light';
+	src: url('../assets/fontello/Roboto-Light.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Roboto-Regular';
+	src: url('../assets/fontello/Roboto-Regular.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Roboto-Bold';
+	src: url('../assets/fontello/Roboto-Bold.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Roboto-Thin';
+	src: url('../assets/fontello/Roboto-Thin.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+.contact-popover {
+	margin-top: -140px !important;
+
+	ion-backdrop {
+		opacity: 0.4;
+	}
+}
+.scroll-content,
+p {
+	font-family: 'Roboto-Light';
+}
+
+.label,
+.text-input {
+	font-family: 'Roboto-Light';
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+	font-family: 'Roboto-Regular', sans-serif;
+}
+
+.toolbar {
+	min-height: 65px;
+	padding: 15px 4px;
+	align-items: flex-start;
+	// border-bottom: 1px solid color($colors, orlight);
+	.toolbar-background {
+		background-color: color($colors, dark);
+		@extend %cover;
+		background-image: url(../assets/images/head-img.jpg);
+		color: color($colors, light);
+	}
+	.toolbar-title {
+		font-weight: normal;
+		font-family: 'Roboto-Light';
+	}
+	ion-title {
+		margin-top: 5px;
+	}
+	.bar-button-menutoggle {
+		margin-left: 0;
+		color: color($colors, light);
+	}
+	.back-button-icon {
+		padding-top: 7px;
+		color: color($colors, light);
+		// font-size: 2rem;
+	}
+	.bar-button {
+		color: color($colors, light);
+	}
+}
+
+div.toolbar-title {
+	color: color($colors, light) !important;
+}
+
+[bloc-empty] {
+	div:first-child {
+		height: 120px;
+		width: 120px;
+		margin: auto;
+		border-radius: 100%;
+		background-color: color($colors, grislight);
+		padding-top: 20px;
+	}
+	img {
+		height: 80px;
+		width: 80px;
+	}
+	h3,
+	h6 {
+		color: color($colors, darkgris) !important;
+		opacity: 0.8 !important;
+		font-size: 1.2em !important;
+	}
+}
+
+[objSpinner] {
+	ion-spinner * {
+		width: 28px;
+		height: 28px;
+		stroke: #444 !important;
+		fill: #222 !important;
+	}
+}
+
+.tabbar {
+	background: color($colors, grislight) !important;
+	height: 55px;
+	.tab-button,
+	ion-icon {
+		color: color($colors, light);
+	}
+	.tab-button .tab-button-text {
+		font-size: 0.77em;
+		font-family: 'Roboto-Light';
+		color: color($colors, gris);
+	}
+
+	.tab-button[aria-selected=true] .tab-button-text {
+		color: color($colors, dark);
+		ion-icon {
+			color: color($colors, primary);
+		}
+	}
+
+	.tab-button:nth-child(3)[aria-selected=true] .tab-button-text {
+		color: color($colors, dark);
+		ion-icon {
+			color: color($colors, light) !important;
+		}
+	}
+
+	.tab-button:nth-child(3) {
+		//Middle
+		background-color: color($colors, primary) !important;
+		// padding-top: 10px;
+		position: relative;
+		bottom: 8px;
+		height: 70px;
+		border-top-right-radius: 40%;
+		border-top-left-radius: 40%;
+		.tab-button-text {
+			color: color($colors, light);
+			ion-icon {
+				color: color($colors, light) !important;
+			}
+		}
+	}
+
+	ion-icon {
+		&[class*="custom-"] {
+			// Instead of using the font-based icons
+			// We're applying SVG masks
+			mask-size: contain;
+			mask-position: 50% 50%;
+			mask-repeat: no-repeat;
+			background: currentColor;
+			width: 0.9em;
+			height: 0.9em;
+		}
+		// custom icons
+		&[class*="custom-africa"] {
+			mask-image: url(../assets/icon/favourites.svg);
+		}
+		&[class*="custom-home"] {
+			mask-image: url(../assets/icon/home.svg);
+		}
+		&[class*="custom-planning"] {
+			mask-image: url(../assets/icon/placeholder.svg);
+		}
+		&[class*="custom-news"] {
+			mask-image: url(../assets/icon/historic.svg);
+		}
+		&[class*="custom-plus"] {
+			mask-image: url(../assets/icon/more.svg);
+		}
+	}
+}
+
+[custom-segment] {
+	min-height: 50px !important;
+	padding-top: 10px;
+	padding-bottom: 10px;
+
+	.toolbar-background {
+		// background-image: none !important;
+		// background-color: color($colors, lightest);
+		background-image: url("../assets/images/bg_segment.jpg");
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center;
+	}
+
+	.segment-button {
+		font-family: 'Roboto-Regular';
+		color: color($colors, light) !important;
+		// opacity: 0.5 !important;
+		border-bottom: none !important;
+	}
+}
+
+.search-bar::-webkit-input-placeholder {
+	text-indent: 0;
+	color: color($colors, dark);
+}
+
+searchbar-md .searchbar-input::-webkit-input-placeholder {
+	color: black;
+}
+
+.custom-action-sheetMain {
+	.action-sheet-container .action-sheet-group {
+		border-top: 5px solid color($colors, primary);
+		background-color: black;
+	}
+}
+
+.custom-action-sheetEvent {
+	.action-sheet-container {
+		text-align: center;
+		.btn-paypal {
+			background-image: url("../assets/images/paypal_visa_mastercard.png") !important;
+			background-repeat: no-repeat !important;
+			background-size: 80px;
+			background-position: center !important;
+			// padding-left: 70px !important;
+		}
+		.btn-EU {
+			background-image: url("../assets/images/EU.png") !important;
+			background-repeat: no-repeat !important;
+			background-size: 50px;
+			background-position: center !important;
+			// padding-left: 70px !important;
+		}
+		.btn-cash {
+			background-image: url("../assets/images/money.png") !important;
+			background-repeat: no-repeat !important;
+			background-size: 50px;
+			background-position: center !important;
+			// padding-left: 70px !important;
+		}
+		.btn-orangemoney {
+			background-image: url("../assets/images/mobile_money.jpg") !important;
+			background-repeat: no-repeat !important;
+			background-size: 80px;
+			background-position: center !important;
+			// padding-left: 70px !important;
+		}
+		.btn-momo {
+			background-image: url("../assets/images/momo.jpg") !important;
+			background-repeat: no-repeat !important;
+			background-size: 50px;
+			background-position: center !important;
+			// padding-left: 70px !important;
+		}
+		.btn-payconiq {
+			background-image: url("../assets/images/payconiq.png") !important;
+			background-repeat: no-repeat !important;
+			background-size: 45px;
+			background-position: center !important;
+			// padding-left: 70px !important;
+		}
+		.action-sheet-title {
+			color: color($colors, noir);
+			text-align: center;
+		}
+		button {
+			width: 90px !important;
+			height: 100px !important;
+			margin-left: 0 !important;
+			padding-left: 0 !important;
+			.action-sheet-icon,
+			.button-inner {
+				display: block !important;
+			}
+			.button-inner {
+				font-size: 0.7em;
+				padding-top: 80px !important;
+				width: 90px !important;
+				// height: 90px !important;
+				text-align: center;
+				color: color($colors, dark) !important;
+			}
+			.action-sheet-icon {
+				// font-size: 4.0em !important;
+				padding-left: 15px;
+				margin-left: 0;
+			}
+			.icon-ios {
+				font-size: 3.0em !important;
+				padding-left: 10px;
+				margin-left: 0;
+			}
+		}
+	}
+}
+.custom-popEmpty{
+	.popover-content{
+		width: calc(100% - 20px) !important;
+        padding: 0px !important;
+        padding-bottom: 5px !important;
+		top: 30% !important;
+		border-radius: 20px !important;
+	}
+	ion-backdrop {
+		opacity: 0.4;
+	}
+}
+
+.custom-popaudio,
+.custom-agenda,
+.custom-poppackinfo {
+	ion-backdrop {
+		opacity: 0.4;
+	}
+}
+
+.custom-poplangue {
+	// left: 7% !important;
+	.popover-content {
+		height: 330px !important;
+		top: 30% !important;
+		border-radius: 0.45em !important;
+		background-color: transparent !important;
+		box-shadow: none !important;
+	}
+
+	ion-backdrop {
+		opacity: 0.9;
+	}
+}
+
+.custom-popavis .popover-content {
+	width: 300px !important;
+	left: 52px !important;
+	border-radius: 10px !important;
+	h3 {
+		font-size: 1.3em !important;
+	}
+	ion-text-area {
+		height: 150px !important;
+	}
+	button {
+		margin-bottom: 10px !important;
+	}
+}
+
+.custom-popavis {
+	ion-backdrop {
+		opacity: 0.4;
+	}
+}
+
+.custom-popover .popover-content {
+	left: 35px !important;
+	width: 350px !important;
+	top: 150px !important;
+	max-height: 100% !important;
+}
+
+.custom-options .popover-content {
+	width: 300px !important;
+	height: auto !important;
+	background-color: color($colors, primary);
+	border-radius: 0.45em !important;
+	img {
+		width: 30px !important;
+	}
+}
+
+.custom-agenda .popover-content {
+	// width: 60% !important;
+	max-height: 350px !important;
+	border-radius: 0.50em !important;
+}
+
+.custom-popaudio .popover-content {
+	// width: 85% !important;
+	height: 330px !important;
+	border-radius: 0.45em !important;
+}
+
+.custom-poprate .popover-content {
+	// left: 35px !important;
+	width: 290px !important;
+	// top: 150px !important;
+	// max-height: 100% !important
+	padding: 15px !important;
+	border-radius: 20px !important;
+	button {
+		padding: 0 !important;
+	}
+	ion-col {
+		padding: 0 !important;
+	}
+}
+.custom-poppackinfo {
+	.popover-content {
+		width: calc(100% - 20px) !important;
+        padding: 0px !important;
+        padding-bottom: 5px !important;
+        top: 45px !important;
+		border-radius: 20px !important;
+		button {
+			padding: 0 !important;
+		}
+		ion-col {
+			padding: 0 !important;
+        }
+        .img-bloc{
+			margin: 70px !important;
+			margin-bottom: 0px !important;
+			margin-top: 5px !important;
+		}
+		
+		#pack_name {
+			font-weight: 900 !important;
+			font-size: 1.4em !important;
+			margin-top: 2px !important;
+			margin-bottom: 5px !important
+		}
+		 #price {
+            margin-top: 2px !important;
+            margin-bottom: 2px !important;
+            font-style: italic !important;
+            color: color($colors, primary)
+        }
+        #pack_duration{
+            margin-top: 2px !important;
+            margin-bottom: 2px !important;
+
+        }
+	}
+	ion-backdrop {
+		opacity: 0.5 !important;
+	}
+}
+
+/* STYLE SCSS TOAST */
+.toast-info {
+	// padding: 4px;
+	div.toast-wrapper {
+		width: 95%;
+		margin-top: 10px;
+		border-radius: 1em;
+		background: #cbe4ff;
+		// border: 1px solid lightblue
+	}
+	.toast-container {
+		.toast-message,
+		button {
+			color: #004085;
+		}
+	}
+}
+
+.toast-error {
+	// padding: 4px;
+	div.toast-wrapper {
+		width: 95%;
+		margin-top: 10px;
+		border-radius: 1em;
+		background: #f8d6d9;
+		// border: 1px solid lightcoral
+	}
+	.toast-container {
+		.toast-message,
+		button {
+			color: #9b1b24;
+		}
+	}
+}
+
+.toast-success {
+	// padding: 4px;
+	div.toast-wrapper {
+		width: 95%;
+		margin-top: 10px;
+		border-radius: 1em;
+		background: #d4edda;
+		// border: 1px solid lightgreen
+	}
+	.toast-container {
+		.toast-message,
+		button {
+			color: color($colors, vert);
+		}
+	}
+}

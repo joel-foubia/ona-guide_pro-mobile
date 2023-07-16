@@ -1,0 +1,60 @@
+<!--
+  Generated template for the WebtvPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header no-border class="header_off">
+
+    <ion-navbar color="light">
+
+        <ion-title>Africa WebTV</ion-title>
+        <ion-buttons end>
+            <button ion-button (click)="openMenu()" icon-only>
+                <ion-icon name="md-more"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content text-center parallax-header>
+    <div [ngClass]="{'picGoDown':direction == 'down', 'picGoUp':direction == 'up'}" id="profile_pic">
+    </div>
+    <div [ngClass]="{'nameGoDown':direction == 'down', 'pnameGoUp':direction == 'up'}" id="user_info">
+        <h4>{{'webtv.channels' | translate}}</h4>
+    </div>
+    <div id="segment_container" padding>
+        <ion-segment [(ngModel)]="segment">
+            <ion-segment-button *ngFor="let item of channelsList" (click)="segmentChanged(item, $event)" [value]="item.id">
+                {{item.title}}
+            </ion-segment-button>
+
+        </ion-segment>
+    </div>
+
+    <div padding class="header-image">
+
+    </div>
+    <div class="main-content">
+        <div id="segment_data" text-center [ngSwitch]="segment">
+            <div *ngFor="let item of channelsList">
+                <ion-scroll *ngSwitchCase="item.id" id="scroller" scrollY="true">
+
+                    <ion-grid>
+                        {{item.title}}
+
+                        <ion-row>
+                            <ion-col *ngFor="let pl of item.links" col-12 col-sm-6 col-md-6 col-lg-3 col-xl-4>
+                                <div class="videoWrapper">
+                                    <iframe id="ytplayer" type="text/html" width="550" height="360" [src]="pl | safe" allow="encrypted-media" frameborder="0" allowfullscreen></iframe>
+                                </div>
+                            </ion-col>
+                        </ion-row>
+                    </ion-grid>
+                </ion-scroll>
+            </div>
+        </div>
+    </div>
+</ion-content>

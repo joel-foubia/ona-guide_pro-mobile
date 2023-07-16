@@ -1,0 +1,44 @@
+<div padding text-center class="bloc-header">
+    <h3 text-center text-uppercase>{{'events.start_title' | translate}}</h3>
+    <p text-uppercase>{{'events.start_sub_title' | translate}}</p>
+    <ion-row class="animated zoomIn bloc-btns">
+      <ion-col>
+        <button ion-button text-uppercase outline color="light" (click)="goToEvents()">
+            {{'events.btn_find' | translate}}
+        </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button text-uppercase outline color="light" (click)="createEvent()">
+            {{'events.btn_create' | translate}}
+        </button>
+      </ion-col>
+      <!-- <p no-margin>OU</p> -->
+    </ion-row>
+  </div>
+<ion-header no-border>
+
+  <ion-navbar>
+    <ion-title></ion-title>
+    <ion-buttons end>
+        <button ion-button color="light" (click)="openMenu()" icon-only>
+            <ion-icon name="md-more"></ion-icon>
+        </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-grid  class="bloc-category">
+    <p text-center *ngIf="objLoader"><ion-spinner objSpinner name="dots"></ion-spinner></p>
+    <ion-row *ngIf="!objLoader">
+        <ion-col col-6 col-md-6 col-sm-6 col-lg-3 col-xl-4 *ngFor="let cat of categories" (click)="goToEvents(cat)">
+          <div text-center class="animated fadeIn">
+            <h5>{{cat?.name}}</h5>
+            <span>{{cat?.count}} événement(s)</span>
+          </div>
+        </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

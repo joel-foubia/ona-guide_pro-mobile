@@ -1,0 +1,200 @@
+// Ionic Variables and Theming. For more info, please see:
+// http://ionicframework.com/docs/theming/
+
+// Font path is used to include ionicons,
+// roboto, and noto sans fonts
+$font-path: "../assets/fonts";
+
+
+// The app direction is used to include
+// rtl styles in your app. For more info, please see:
+// http://ionicframework.com/docs/theming/rtl-support/
+$app-direction: ltr;
+
+
+@import "ionic.globals";
+
+
+// Shared Variables
+// --------------------------------------------------
+%cover{
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  background-position: center center !important;
+}
+
+%box-shadow{
+    -webkit-box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.3) !important;
+    box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.3) !important;
+}
+
+%overflow{
+    white-space: nowrap !important;
+    text-overflow: ellipsis !important;
+    overflow: hidden !important;
+}
+
+
+$white: #FFFFFF;
+$white-a: darken($white, 3%);
+$white-b: darken($white, 6%);
+$white-c: darken($white, 12%);
+$white-d: darken($white, 24%);
+
+$black: rgba(#000000, .8);
+$black-a: lighten($black, 10%);
+$black-b: lighten($black, 20%);
+$black-c: lighten($black, 40%);
+$black-d: lighten($black, 60%);
+
+$theme-color-1: #00e9d5;
+$theme-color-2: #F164AB;
+$theme-color-3: #5e5874;
+$theme-color-4: #F164AB;
+$red: #FF4136;
+$blue: darken(mix(#39CCCC, #7FDBFF), 15%);
+$yellow: #ffba10;
+$green-1: darken(#99E15A, 5%);
+$green-2: mix(#3D9970, #2ECC40);
+$green: mix($green-1, $green-2);
+$orange: #ff4c00;
+$purple: #9d5973;
+$gray: #3c3c3c;
+$slateblue: #70ACB5;
+$couleurs: $slateblue, red, $red, green, $green, blue, $blue, yellow, $yellow, orange, $orange, purple, $purple;
+
+
+// Named Color Variables
+// --------------------------------------------------
+// Named colors makes it easy to reuse colors on various components.
+// It's highly recommended to change the default colors
+// to match your app's branding. Ionic uses a Sass map of
+// colors so you can add, rename and remove colors as needed.
+// The "primary" color is the only required color in the map.
+
+$colors: (
+  primary:    #0288d1,
+  orlight:    rgba(#e1b237, .9),
+  secondary:  #ee3d96,
+  colorText: #b7b6b6,
+  danger:     #f53d3d,
+  rateColor: #f1520e,
+  light:      #ffffff,
+  lightest:   #faf8f8,
+  bluelight:   #f1f5f8,
+  dark:       #000,
+  noir:       #101010,
+  gris:       #666666,
+  bar:        #d4d4d4,
+  star:      #f27a41,
+  darkgris:   #536b71,
+  grislight:  #f3f3f3,
+  vert: 	  #09b21b,
+  vertlight: #3D9970,
+  gsalmon: #FA8072,
+  grayColor: #ccc,
+  ggray: #808080,
+  iconColor: #e53935,
+  ghoneydew: #F0FFF0,
+  gPowderBlue: #B0E0E6,
+  gRosyBrown: #BC8F8F,  
+  graySpite: #327eff,
+  chatBadge: #00aced, 
+  likeColor: #e53935,
+  walkthrough:(
+    base: $theme-color-1,
+    contrast: $white
+  ),
+  walkthrough-alt:(
+    base: $theme-color-2,
+    contrast: $white
+  ),
+  walkthrough-header:(
+    base: transparent,
+    contrast: $white
+  ),
+  header:(
+    base: $theme-color-1,
+    contrast: $white
+  ),
+  header-alt:(
+    base: $theme-color-2,
+    contrast: $white
+  ),
+  facebook:(
+    base: #3b5998,
+    contrast: $white
+  ),
+  google:(
+    base: #cc181e,
+    contrast: $white
+  ),
+  twitter:(
+    base: #00aced,
+    contrast: $white
+  ),
+  button:(
+    base: $theme-color-1,
+    contrast: $white
+  ),
+  button-alt:(
+    base: $theme-color-2,
+    contrast: $white
+  ),
+  background:(
+    base: $white-a,
+    contrast: $black-b
+  ),
+  tabs-navigation:(
+    base: $white,
+    contrast: $white-d
+  )
+
+);
+
+
+
+// App iOS Variables
+// --------------------------------------------------
+// iOS only Sass variables can go here
+
+
+
+
+// App Material Design Variables
+// --------------------------------------------------
+// Material Design only Sass variables can go here
+$searchbar-md-background-color: transparent;
+$searchbar-md-input-search-icon-color: color($colors, primary);
+
+
+// App Windows Variables
+// --------------------------------------------------
+// Windows only Sass variables can go here
+
+
+
+
+// App Theme
+// --------------------------------------------------
+// Ionic apps can have different themes applied, which can
+// then be future customized. This import comes last
+// so that the above variables are used and Ionic's
+// default are overridden.
+
+@import "ionic.theme.default";
+
+
+// Ionicons
+// --------------------------------------------------
+// The premium icon font for Ionic. For more info, please see:
+// http://ionicframework.com/docs/ionicons/
+
+@import "ionic.ionicons";
+
+
+// Fonts
+// --------------------------------------------------
+
+@import "roboto";
+@import "noto-sans";

@@ -1,0 +1,167 @@
+page-taxonomies-list {
+    .scroll-content {
+        background-color: color($colors, lightest);
+    }
+    // $number-of-colors: length($couleurs);
+    $key: random(length($couleurs));
+    $nth: nth($couleurs, $key);
+    $main-color: $nth !default;
+    @mixin background_cat($c, $y) {
+        @for $i from 1 through $y {
+            ion-card:nth-child(#{length($couleurs)}n+#{$i}) {
+                background: darken(nth($couleurs, random(length($couleurs))), 20%);
+            }
+        }
+    }
+    @mixin color($c, $y) {
+        // background: $c;
+        @for $i from 1 through $y {
+            ion-col:nth-child(#{length($couleurs)}n+#{$i}) ion-icon {
+                color: lighten(nth($couleurs, random(length($couleurs))), 20%);
+            }
+        }
+    }
+    ion-item {
+        background-color: rgba($color: #fff, $alpha: 0.7);
+    }
+    .bloc-category {
+        @include color($main-color, 11);
+    }
+    .custom-card {
+        background-image: url("../assets/images/bg_card.jpg");
+        background-repeat: no-repeat;
+        background-position: right top;
+        ion-item {
+            background-color: rgba($color: #fff, $alpha: 0.7);
+        }
+    }
+    
+    ion-toolbar {
+        padding: 0px !important;
+        ion-item {
+            background: transparent !important;
+            ion-searchbar {
+                width: 90%;
+            }
+        }
+    }
+    h6 {
+        color: color($colors, light) !important;
+        font-size: 1em !important;
+        margin-top: 0.6rem !important;
+        margin-bottom: 0.6rem !important;
+    }
+    #search_toolbar.toolbar {
+        // padding-top: 0px !important;
+        // padding-bottom: 0px !important;
+        .toolbar-background {
+            background-image: none !important;
+            background-color: color($colors, lightest) !important;
+            box-shadow: none !important;
+        }
+    }
+    ion-header.header.header-md::after {
+        background-image: none !important;
+    }
+    input.searchbar-input {
+        border-radius: 10px !important;
+        // background-color: color($colors, grislight) !important;
+        box-shadow: none !important;
+        color: color($colors, dark) !important;
+    }
+    .searchbar-input-container {
+        .searchbar-input {
+            &::-webkit-input-placeholder {
+                /* Chrome/Opera/Safari */
+                color: color($colors, dark) !important;
+            }
+            color: color($colors, dark) !important;
+        }
+    }
+    input.searchbar-input {
+        border-radius: 5px !important;
+        font-weight: lighter !important;
+        font-size: 1.4rem !important;
+        line-height: 2.5rem !important;
+        color: black !important;
+        box-shadow: none !important;
+        background-color: color($colors, lightest) !important;
+    }
+    .filters-selected {
+        margin-top: 10px !important;
+        span {
+            padding: 7px;
+            // background-color: burlywood !important;
+            border-radius: 30px !important;
+            display: inline-block !important;
+            margin-bottom: 6px !important;
+            margin-right: 10px !important;
+            ion-icon {
+                margin-left: 5px !important
+            }
+        }
+    }
+    .search-bloc {
+        width: 95%;
+        border-radius: 8px !important;
+        margin: 10px !important;
+        background-color: color($colors, light) !important;
+        // margin: 5px !important;
+        ion-label {
+            margin-top: 0px !important;
+            margin-bottom: 0px !important;
+        }
+        ion-searchbar {
+            padding: 0px !important;
+            margin-top: 0px !important;
+            margin-bottom: 0px !important
+        }
+        input.searchbar-input {
+            background: transparent !important;
+        }
+        ion-icon {
+            margin-top: 2px !important;
+            margin-bottom: 2px !important;
+        }
+    }
+    #empty_img {
+        width: 200px !important;
+        margin-top: 20px !important;
+    }
+    .bloc-empty {
+        display: block !important;
+    }
+    h2 {
+        color: black !important
+    }
+
+    ion-slide {
+        height: 220px !important;
+
+    }
+
+    ion-slides {
+        height: 160px !important;
+        padding: 0px !important;
+
+    }
+    .swiper-pagination-bullet {
+    
+        margin-bottom: 20px;
+        float: right;
+    }
+
+    .swiper-container-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet {
+
+        margin-bottom: 15px !important;
+    }
+
+    .searchOn {
+        background-color: color($colors, primary);
+        width: 40px !important;
+        height: 40px !important;
+        border-radius: 2em !important;
+        color: color($colors, light) !important
+    }
+
+}

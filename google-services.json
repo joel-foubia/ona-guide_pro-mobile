@@ -1,0 +1,59 @@
+{
+  "project_info": {
+    "project_number": "489146933418",
+    "firebase_url": "https://guide-pro-cameroun.firebaseio.com",
+    "project_id": "guide-pro-cameroun",
+    "storage_bucket": "guide-pro-cameroun.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:489146933418:android:4494b4bd2e28b010",
+        "android_client_info": {
+          "package_name": "ona.app.guideprocm"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCa-Ku9okJUf-l9W4vuTI06XWGW2rP1lQA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "489146933418-dljgr31dks27cdag90605ib85jdsjqju.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:489146933418:android:af8cbc3214b04793",
+        "android_client_info": {
+          "package_name": "ona.app.leguide237"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCa-Ku9okJUf-l9W4vuTI06XWGW2rP1lQA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "489146933418-dljgr31dks27cdag90605ib85jdsjqju.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

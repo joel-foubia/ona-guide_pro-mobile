@@ -1,0 +1,7 @@
+{
+  "name": "237 Guide Pro",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
